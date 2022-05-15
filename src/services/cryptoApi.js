@@ -22,6 +22,10 @@ export const cryptoApi = createApi({
     getCryptoDetails: builder.query({
       query: (coinId) => createRequest(`/coin/${coinId}`),
     }),
+    getCryptoHistory: builder.query({
+      query: ({ coinId, timeperiod }) =>
+        createRequest(`/coin/${coinId}/history?timePeriod=24h`),
+    }),
   }),
 });
 
@@ -45,6 +49,10 @@ export const cryptoApi = createApi({
 //   }),
 // });
 
-export const { useGetCryptosQuery, useGetCryptoDetailsQuery } = cryptoApi;
+export const {
+  useGetCryptosQuery,
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} = cryptoApi;
 // export const { useGetExchangesQuery } = cryptoExchangeApi;
 // export const { useGetMarketsQuery } = cryptoMarketCapApi;
