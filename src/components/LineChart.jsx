@@ -22,11 +22,11 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   }
 
   const data = {
-    labels: coinTimestamp,
+    labels: coinTimestamp.reverse(),
     datasets: [
       {
         label: "Price In USD",
-        data: coinPrice,
+        data: coinPrice.reverse(),
         fill: false,
         backgroundColor: "#0071bd",
         borderColor: "#0071bd",
@@ -36,13 +36,11 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
 
   const options = {
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
+      yAxes: {
+        ticks: {
+          beginAtZero: true,
         },
-      ],
+      },
     },
   };
 
