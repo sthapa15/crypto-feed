@@ -9,7 +9,6 @@ const Cryptocurrencies = ({ simplified }) => {
   const { data: cryptosList, isFetching } = useGetCryptosQuery(count);
   const [cryptos, setCryptos] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  //console.log(cryptos[0].uuid);
 
   //will execute whenever cryptosList or searchTerm changes
   //componentDidMount, componentDidUpdate for the properties
@@ -46,7 +45,13 @@ const Cryptocurrencies = ({ simplified }) => {
             <Link to={`/crypto/${currency.uuid}`}>
               <Card
                 title={`${currency.rank}.  ${currency.name}`}
-                extra={<img className="crypto-image" src={currency.iconUrl} />}
+                extra={
+                  <img
+                    className="crypto-image"
+                    src={currency.iconUrl}
+                    alt="logo for crypto"
+                  />
+                }
                 hoverable
               >
                 <p>Price: {millify(currency.price)}</p>
@@ -59,7 +64,6 @@ const Cryptocurrencies = ({ simplified }) => {
       </Row>
     </>
   );
-  // return <div>Cryptocurrencies</div>;
 };
 
 export default Cryptocurrencies;

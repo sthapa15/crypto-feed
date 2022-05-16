@@ -1,4 +1,4 @@
-// //logic of fetching data from api
+//logic of fetching crypto data from api using redux toolkit
 
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
@@ -29,30 +29,8 @@ export const cryptoApi = createApi({
   }),
 });
 
-// export const cryptoExchangeApi = createApi({
-//   reducerPath: "cryptoExchangeApi",
-//   baseQuery: fetchBaseQuery({ baseUrl }),
-//   endpoints: (builder) => ({
-//     getExchanges: builder.query({
-//       query: () => createRequest("/exchanges/list"),
-//     }),
-//   }),
-// });
-
-// export const cryptoMarketCapApi = createApi({
-//   reducerPath: "cryptoMarketCapApi",
-//   baseQuery: fetchBaseQuery({ baseUrl }),
-//   endpoints: (builder) => ({
-//     getMarkets: builder.query({
-//       query: () => createRequest("/global"),
-//     }),
-//   }),
-// });
-
 export const {
   useGetCryptosQuery,
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } = cryptoApi;
-// export const { useGetExchangesQuery } = cryptoExchangeApi;
-// export const { useGetMarketsQuery } = cryptoMarketCapApi;

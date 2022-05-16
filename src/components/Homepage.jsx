@@ -4,32 +4,20 @@ import { Typography, Row, Col, Statistic } from "antd";
 import { Link } from "react-router-dom";
 
 import { useGetCryptosQuery } from "../services/cryptoApi";
-//import { useGetExchangesQuery } from "../services/cryptoApi";
-//import { useGetMarketsQuery } from "../services/cryptoApi";
 
 import { Cryptocurrencies, News } from "../components";
+import Loader from "./Loader";
 
 const { Title } = Typography;
 
 const Homepage = () => {
   const { data, isFetching } = useGetCryptosQuery(10);
-  // const { data: data2 } = useGetExchangesQuery();
-  //const { data: data3 } = useGetMarketsQuery();
 
   const globalStats = data?.data?.stats; //optional chaining
 
   console.log(globalStats);
-  // console.log(data2);
-  //console.log(Object.keys(data3.data.total_market_cap));
 
-  let marketCapSum = 0;
-
-  // for (const key in data3.data.total_market_cap) {
-  //   marketCapSum += data3.data.total_market_cap[key];
-  //   //console.log(marketCapSum);
-  // }
-
-  if (isFetching) return "loading...";
+  if (isFetching) return <Loader />;
 
   return (
     <>
